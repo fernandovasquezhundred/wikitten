@@ -1,7 +1,12 @@
-UPDATE wp_options SET option_value = replace(option_value, 'http://www.perunopor.com', 'http://www.expertomba.com');
-UPDATE wp_posts SET guid = replace(guid, 'http://www.perunopor.com','http://www.expertomba.com');
-UPDATE wp_posts SET post_content = replace(post_content, 'http://www.perunopor.com', 'http://www.expertomba.com');
-UPDATE wp_postmeta SET meta_value = replace(meta_value, 'http://www.perunopor.com', 'http://www.expertomba.com');
+Buddypress
+
+zM Ajax Login & Register [https://wordpress.org/plugins/zm-ajax-login-register/]
+* Just create a page and add: [ajax_login] or [ajax_register]
+
+Pages Comments: Quick edit
+
+
 -- .htaccess:
 -- RewriteBase /
 -- RewriteRule . /index.php [L]
+http://michi.space/binacube/

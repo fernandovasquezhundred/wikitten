@@ -10,4 +10,3 @@ tar -zxvf file.tar.gz -C /tmp/extractHere/
 vi /etc/ld.so.conf
 vi /etc/ld.so.conf.d/libc.conf
 sudo ldconfig
-

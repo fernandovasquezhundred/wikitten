@@ -8,3 +8,28 @@
 <% image_path("edit.png")  %>     # => /assets/edit.png
 <% image_tag("rails.png") %>
 
+*** CSS and Sass
+image-url("rails.png") becomes url(/assets/rails.png)
+asset-url("rails.png") becomes url(/assets/rails.png)
+
+image-path("rails.png") becomes "/assets/rails.png"
+asset-path("rails.png") becomes "/assets/rails.png"
+
+*** css
+#logo { background: url(<%= asset_data_uri 'logo.png' %>) }
+
+*** for
+<ul>
+  <% for @item in @shopping_list %>
+    <li><%= @item %></li>
+  <% end %>
+</ul>
+
+*** comments
+<%# This is just a comment %>
+
+*** encode
+<%= h(this & that) %>      HTML escaped
+<%= j(this & that) %>      JSON encoded
+<%= t(this & that) %>      conv to Textile markup:
+<%= u(this & that) %>      URL encoded

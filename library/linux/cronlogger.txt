@@ -1,5 +1,3 @@
-Q. How can I tell if my cronjobs are running ok since they don't produce any output?
-
 A. Check the following file:
 
 	/var/cron/log 		(cron history information)

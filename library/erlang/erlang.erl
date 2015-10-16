@@ -1,3 +1,7 @@
+%%
+%% Printing
+%%
+
 io:fwrite("~s ~w ~i ~w ~c ~n",['abc def', 'abc def', {foo, 1}, {foo, 1}, 65]).
 %% abc def 'abc def'  {foo,1} A
 

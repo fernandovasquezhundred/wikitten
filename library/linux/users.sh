@@ -1,9 +1,9 @@
 # Ubuntu # adduser <username>
 sudo useradd -s /bin/bash -d /home/djuser -m djuser
-sudo passwd djuser
-groupadd -r grupo
-gpasswd -a usuario grupo
-# freedomM0dF3r21.
+sudo useradd -s /bin/bash -d /home/bufer -m bufer
+sudo passwd __USER__
+groupadd -r __GROUP__
+gpasswd -a __USER__ __GROUP__
 
 #lista de usuario
 sudo cat /etc/shadow
@@ -17,4 +17,7 @@ sudo passwd root
 sudo passwd -l root
 
 #add to sudoers
-sudo adduser djuser sudo
+sudo adduser __USER__ sudo
+
+# set default shell to user
+chsh -s /bin/bash username
