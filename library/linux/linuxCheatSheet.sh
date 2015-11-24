@@ -27,14 +27,14 @@ rsync --bwlimit=1000 fromfile tofile
 rsync -az -e ssh --delete ~/public_html/ remote.com:'~/public_html'
 
 # Synchronize current directory with remote one
-rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/	
+rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/
 
 #####################################
 #  Regular Expression with Sed      # 
 #####################################
 sed 's/string1/string2/g'
 # Modify anystring1 to anystring2
-sed 's/\(.*\)1/\12/g' 
+sed 's/\(.*\)1/\12/g'
 # Remove comments and blank lines
 sed '/ *#/d; /^ *$/d'
 # Concatenate lines with trailing \
@@ -44,7 +44,7 @@ sed 's/[ \t]*$//'
 # Escape shell metacharacters active within double quotes
 sed 's/\([`"$\]\)/\\\1/g'
 # Right align numbers
-seq 10 | sed "s/^/      /; s/ *\(.\{7,\}\)/\1/"	
+seq 10 | sed "s/^/      /; s/ *\(.\{7,\}\)/\1/"
 # Print 1000th line of file
 cat file | sed -n '1000{p;q}'
 # Print lines 10 to 20
@@ -90,7 +90,7 @@ iwconfig eth1
 iwconfig eth1 rate 1Mb/s fixed
 # Manually set wireless interface speed
 
-iwlist scan	
+iwlist scan
 # List wireless networks in range
 
 ip link show
@@ -325,8 +325,7 @@ List info for particular process IDs
 last reboot
 Show system reboot history
 •
-free -m
-# Show amount of (remaining) RAM (-m displays in MB)
+
 •
 watch -n.1 'cat /proc/interrupts'
 Watch changeable data continuously

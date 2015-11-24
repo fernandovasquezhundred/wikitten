@@ -1,11 +1,7 @@
-"""----------------------------------------------------------
-    Models
-----------------------------------------------------------"""
-
 class Publisher(models.Model):
-  name = models.CharField(maxlength=30, help_text='Name', unique=True)
+  name    = models.CharField(maxlength=30, help_text='Name', unique=True)
   address = models.TextField(maxlength=50)
-  city = models.CharField(maxlength=60, default='London')
+  city    = models.CharField(maxlength=60, default='London')
 
   def __str__(self):
     return self.name
@@ -14,11 +10,13 @@ class Publisher(models.Model):
     ordering = ["name"]
 
 # creating and saving
-ringo = Person.objects.create(name="Ringo Starr") 
+ringo = Person.objects.create(name="Ringo Starr")
 p1 = Publisher(name='Addison-Wesley', address='75 Arlington Street')
 p1.save()
 
-# getting and filtering
+##
+## getting and filtering
+##
 publisher_list = Publisher.objects.all()
 Publisher.objects.filter(name="Apress Publishing")
 Publisher.objects.filter(name__contains="press") # icontains, startswith y, endswith y, range
@@ -38,7 +36,7 @@ publishers.delete()
 
 for e in Entry.objects.all():
     print e.headline
-    
+
 # agregar nuevo campo a tabla existente
 campo_nuevo = models.IntegerField(blank=True, null=True)
 manage.py sqlall [yourapp] para ver la nueva sentencia CREATE TABLE
@@ -52,12 +50,14 @@ cursor = connection.cursor()
 cursor.execute("DELETE FROM cms_cmsplugin WHERE id=%s", [str(plugin.id)])
 transaction.commit_unless_managed()
 
-############# Many to Many for form in both classes #############
+##
+## Many to Many for form in both classes
+##
 class ManyToManyField_NoSyncdb(models.ManyToManyField):
     def __init__(self, *args, **kwargs):
         super(ManyToManyField_NoSyncdb, self).__init__(*args, **kwargs)
         self.creates_table = False
- 
+
 class User(models.Model):
     groups = ManyToManyField('Group', related_name='groups', db_table=u'USERS_TO_GROUPS')
 class Group(models.Model):

@@ -30,4 +30,3 @@ $db['default']['dbdriver'] = 'postgre';
 
 # https://devcenter.heroku.com/articles/custom-php-settings
 # https://devcenter.heroku.com/articles/php-support
-

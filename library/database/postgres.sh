@@ -12,8 +12,8 @@ sudo passwd postgres
 su postgres
 
 # Finally for connect to the database:
-psql database -U user -W
-psql searchengine -U djuser -W
+psql __DATABASE__ -U __USER__ -h 127.0.0.1  -W
+psql searchengine -U djuser -h 127.0.0.1 -W
 
 # Remote access configuration
 sudo vi /etc/postgresql/8.4/main/postgresql.conf

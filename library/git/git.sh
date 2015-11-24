@@ -1,32 +1,28 @@
 # Start using git with the current directory
 git init
+git config --global user.name "Fernando Vasquez"
+git config --global user.email "iwxfer@gmail.com"
 
 # Add external(remote) repo named origin
 git remote add origin git@github.com:__user__/__repo__.git
-#   By convention, "origin" is the original remote repository, 
-#     it is the 'primary' centralized repository as well. 
+#   By convention, "origin" is the original remote repository,
+#     it is the 'primary' centralized repository as well.
 #     In other words is the local name given to the remote centralized server.
- 
-* You can check the URL of origin with this: 
+
+* You can check the URL of origin with this:
 ```git remote show origin```
- 
+
 * Scheduling the addition of all files to the next commit
 ```git add __file__```
 
 * Committing files (-a: all, -v: view diff)
 ```git commit -m "comments"```
 
-* Push changes to remote repo "origin" from local "master" 
+* Push changes to remote repo "origin" from local "master"
 ```git push -u origin master```
 
 * Pull (checkout) to local "master" from remote repo "origin"
 ```git pull origin master```
-
-* Define the git user (email or name)
-```git config --global user.email "don@gmail.com"```
-
-* Check user (email or name)
-```git config --global user.email```
 
 ### Cloning ###
 
@@ -36,7 +32,7 @@ git clone git@github.com:__user__/__repo__.git
 git clone hello hello-clone
 ```
 
-- Do things... changes new files... 
+- Do things... changes new files...
 ```git add ejemplo.txt```
 
 - Adding to the local repo

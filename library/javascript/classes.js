@@ -1,11 +1,12 @@
-* As a function
-{{{
+//
+// As a function
+//
 function User (type) {
     this.name = name;
     this.age = "red";
     this.getInfo = getAppleInfo;
 }
- 
+
 function getAppleInfo() { // mem expensive!
     return this.name + ' ' + this.age;
 }
@@ -17,9 +18,11 @@ Apple.prototype.getInfo2 = function() {
 var user = new User('BuFer');
 apple.age = 30;
 apple.getInfo();
-}}}
-* As object instance
-{{{
+
+//
+// As object instance
+//
+
 var user = {
     name: "BuFer",
     age: 30,
@@ -27,9 +30,9 @@ var user = {
         return this.name + '-' + this.age;
     }
 }
-}}}
-* Singleton
-{{{
+//
+// Singleton
+//
 var apple = new function() {
     this.name = "BuFer";
     this.age = 30;
@@ -37,4 +40,3 @@ var apple = new function() {
         return this.name + '-' + this.age;
     };
 }
-}}}

@@ -1,0 +1,10 @@
+NameVirtualHost *:80
+<VirtualHost *:80>
+	ServerAdmin webmaster@hackit
+	ServerName hackit
+	DocumentRoot /var/www/hackit
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride All
+  </Directory>
+<Directory /var/www/hackit>

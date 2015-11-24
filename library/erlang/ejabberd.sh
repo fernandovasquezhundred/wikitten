@@ -1,7 +1,6 @@
 ##
 ## Running
-##
-http://localhost:5280/admin
+## http://localhost:5280/admin
 erl -sname node1 -remsh node2@machine2.example.org
 erl -sname short_name # no dot: localhost
 erl -name long_name # with dot: xxx.com
@@ -43,3 +42,9 @@ acl:
   admin:
     user:
       - "admin": "Fernando"
+
+##
+## ejabberdctl mod_admin_extra
+##
+ejabberdctl subscribe bufer fernando vafer fernando VaFer friends both
+ejabberdctl add_rosteritem user30 localhost user31 localhost user31 friends both

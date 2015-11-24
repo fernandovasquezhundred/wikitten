@@ -18,5 +18,3 @@ SID = ejabberd_sm:get_session_pid(LUser, LServer, Resource),
 "from" %% You are interested in me, but I don't care!
 "both" %% Horray, we are friends!
 
-ejabberdctl subscribe bufer fernando vafer fernando VaFer friends both
-ejabberdctl add_rosteritem user30 localhost user31 localhost user31 friends both

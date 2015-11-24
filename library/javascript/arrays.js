@@ -34,14 +34,12 @@ Array.prototype.toString() // Returns a string representing the array and its el
 Array.prototype.indexOf() // Returns the first (least) index of an element within the array equal to the specified value, or -1 if none is found.
 
 // Iteration methods:
-# Every:tests whether all elements in the array pass the test implemented by the provided function.
-{{{
 function isBigEnough(element, index, array) {
   return element >= 10;
 }
 [12, 5, 8, 130, 44].every(isBigEnough);   // false
 [12, 54, 18, 130, 44].every(isBigEnough); // true
-}}}
+
 // forEach
 function log(element, index, array) {
   console.log('a' + index ' = ' + element + ',');

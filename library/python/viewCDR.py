@@ -53,6 +53,7 @@ for fname in dirList:
         casos_linea = buscar_casos(data,fname,numlinea)
         if casos_linea:
           casos=casos+1
-    
+          
+    f.close()
     if casos>0:
       print fname, "==========================================", casos, "\n"
