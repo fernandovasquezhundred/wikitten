@@ -5,7 +5,7 @@ mysqladmin -u user -p oldpassword password newpass
 
 # backup y restarurar base de datos     #
 mysqldump -h localhost -u user -p bd > backup.sql
-mysqldump -user -pPASS bd [tables] > filename
+mysqldump -user -pP4SS bd [tables] > filename
 
 # restarurar: el usuario debe estar creado con los privilegios y la bd
 mysql -h localhost -u user -p database_name < backup.sql

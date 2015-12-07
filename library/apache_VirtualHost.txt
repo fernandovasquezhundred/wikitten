@@ -1,28 +1,12 @@
 a2enmod rewrite
-
-Los ficheros de configuración de los hostings virtuales se
-configuran en sites-available. El segundo subdirectorio sólo
-contiene enlaces a aquellos virtulhost que queremos activar.
-
-Lo primero, creo una nueva entrada en /etc/hosts
-(mantengo lo que había y añado lo siguiente):
-
+# add  to `/etc/hosts`
 127.0.0.1 hackit
 
-Copio los archivos del nuevo site en /var/www/hackit.
-
-Comienza el procedimiento de configuración del nuevo virtualhost en Apache2:
-
-$ cd /etc/apache2
-
-El siguiente comando, a2ensite (available2enablesite) crea un
-enlace en sites-enable al site que le indiquemos (es decir,
-activa el virtualhost que acabamos de crear)
-
+# upload files to /var/www/hackit.
+cd /etc/apache2
 a2ensite hackit
 
-Agregar al final de /etc/apache2/sites-available/default
-
+# Agregar al final de /etc/apache2/sites-available/default
 <VirtualHost *:80>
         ServerAdmin webmaster@webeloper
         ServerName webeloper.info

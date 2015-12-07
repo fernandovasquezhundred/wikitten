@@ -1,18 +1,23 @@
-# Dependencies 
-sudo apt-get install python-setuptools python-dev build-essential 
-sudo apt-get install curl  #libcurl3-dev 
+# Dependencies
+sudo apt-get install python-setuptools python-dev build-essential
+sudo apt-get install curl  #libcurl3-dev
 sudo apt-get install python-psycopg2
 sudo easy_install -U pip
 sudo pip install -U virtualenv
 
 # using the virtual_env:
+mkdir projectz
+cd projectz
+virtualenv myvenv
 virtualenv virtual_env --no-site-packages
-cd virtual_env
-source bin/activate
+myvenv\Scripts\activate
+
+pip install django==1.8
+django-admin startproject djangoapp .
 
 # installing PIL usually: "sudo pip install pil" but in virtual_env:
-sudo apt-get install python-imaging
 sudo apt-get install libjpeg libjpeg-dev
+sudo apt-get install python-imaging
 easy_install -f http://dist.plone.org/thirdparty/ -U PIL==1.1.7
 
 # Install MySQL module usually: "sudo pip install MySQL-python" but in virtual_env:
@@ -64,7 +69,7 @@ WSGIPythonHome /home/bitnami/dev/cardgen/cardgen_env
 
 <VirtualHost *:80>
 	...
-	
+
 	# django config
 	<Directory /home/bitnami/dev/cardgen/src/cardgen>
 		Order deny,allow
@@ -116,12 +121,3 @@ from django.core.handlers.modpython import handler
 	PythonDebug Off
 </Location>
 
-####################################################
-###################### FastCGI #####################
-####################################################
-
-
-####################################################
-#################### social auth ####################
-####################################################
-pip install -E cardgen_env\ django-social-auth

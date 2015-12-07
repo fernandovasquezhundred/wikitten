@@ -14,6 +14,7 @@ su postgres
 # Finally for connect to the database:
 psql __DATABASE__ -U __USER__ -h 127.0.0.1  -W
 psql searchengine -U djuser -h 127.0.0.1 -W
+createdb -O __OWNER__ -T __ORIGINALDB__ __NEWDB__ newdb
 
 # Remote access configuration
 sudo vi /etc/postgresql/8.4/main/postgresql.conf
@@ -28,7 +29,7 @@ sudo vi /etc/postgresql/8.4/main/pg_hba.conf
 
 # create user by specialized commands
 createuser -A -d -P -h host -U new_user
-dropuser -h host -U user
+dropuser -h __HOST__ -U __USER__
 
 # create user and grant ownership
 sudo -u postgres psql postgres
