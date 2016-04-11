@@ -3,45 +3,33 @@ git init
 git config --global user.name "Fernando Vasquez"
 git config --global user.email "iwxfer@gmail.com"
 
-# Add external (remote) repo named __REPO_NAME__
-git remote add __REPO_NAME__ git@github.com:__USER__/__REPO__.git
-#   By convention, "origin" is the original remote repository,
-#     it is the 'primary' centralized repository as well.
+# Push changes to remote repo "origin" from local branch "master"
+git push -u origin master
 
-git remote show origin       # show repo URL
-
-* Push changes to remote repo "origin" from local "master"
-```git push -u origin master```
-
-* Pull (checkout) to local "master" from remote repo "origin"
-```git pull origin master```
+# Pull (checkout) to local branch "master" from remote repo "origin"
+git pull origin master
 
 ### Cloning ###
 
-- Cloning a git repo, remote or local
-```
+# Cloning a git repo, remote or local
 git clone git@github.com:__user__/__repo__.git
 git clone hello hello-clone
-```
 
-- Do things... changes new files...
+# Do things... changes new files...
 git add ejemplo.txt         #- Adding to the local repo
 git commit -m "now in local repo" #  - Push changes into the remote repo
 git push git@github.com:__user__/__repo__.git
 
-- Get changes from other users
-- You do not need to specify the local branch if you are already sitting in it.
+# Get changes from other users
+# You do not need to specify the local branch if you are already sitting in it.
 git pull
 
-- Clone specific branch
-```
+# Clone specific branch
 git clone <url> --branch <branch> --single-branch [<folder>]
 git clone user@git-server:project_name.git -b branch_name /some/folder
 git clone user@git-server:project_name.git -b branch_name --single-branch /some/folder
-```
 
 ### Basic Commands ###
-
 - Checking the status of your repository ```git status```
 - Seeing what files have been committed ```git ls-files```
 - Scheduling deletion of a file ```git rm __file__```
@@ -65,10 +53,8 @@ git clone -b my-branch git@github.com:user/myproject.git
 With Git 1.7.10 and later, add --single-branch to prevent fetching of all branches. Example, with OpenCV 2.4 branch:
 git clone -b 2.4 --single-branch https://github.com/Itseez/opencv.git opencv-2.4
 
-
 # merge different remotes
 git remote add openshift git@github.com:__user__/__repo__.git
 git fetch openshift
 git merge openshift/master
 git commit
-

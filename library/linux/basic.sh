@@ -1,13 +1,14 @@
+# Compress Zip
+7za a -p -r __NAME__.7z /path/__DIR__/
+tar -zcvf file.tar.gz file1 file2 ... dir1 dir2 ...
+tar -zxvf file.tar.gz
+tar -zxvf file.tar.gz -C /tmp/extractHere/
+
 # Permissions chmod [ugoa...][[+-=][rwxXst]
 chmod -R g=u /opt/*  # same permissions to group
 
 # Run backgrouind task
 nohup /path/script.sh > /dev/null 2>&1 &
-
-# Compresion de archivos
-tar -zcvf file.tar.gz file1 file2 ... dir1 dir2 ...
-tar -zxvf file.tar.gz
-tar -zxvf file.tar.gz -C /tmp/extractHere/
 
 # add shared library
 vi /etc/ld.so.conf
