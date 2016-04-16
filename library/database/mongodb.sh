@@ -1,7 +1,7 @@
 sudo apt-get install -y mongodb
 sudo service mongodb start
 
-# For remote connections add folling line to "/etc/mongodb.conf"
+# For remote connections add  line to "/etc/mongodb.conf"
 bind_ip = 0.0.0.0
 
 # Web mongo GUI with Ruby gem

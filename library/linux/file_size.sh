@@ -4,7 +4,7 @@ ls -lSr
 # Show top disk users in current dir. See also dutop
 du -s * | sort -k1,1rn | head
 
-# Show free space on mounted filesystems
+# Show free space on mounted filesystems, whole directories tree sizes
 df -h
 
 # Show free inodes on mounted filesystems
@@ -18,3 +18,9 @@ rpm -q -a --qf '%10{SIZE}\t%{NAME}\n' | sort -k1,1n
 
 # List all packages by installed size (KBytes) on deb distros
 dpkg-query -W -f='${Installed-Size;10}\t${Package}\n' | sort -k1,1n
+
+# Get the total
+du -ch | grep total
+
+#Display 45% for example
+df -h | grep /dev/hda1 | cut -c 41-43

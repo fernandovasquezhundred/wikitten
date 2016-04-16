@@ -1,3 +1,7 @@
+# show current brannch and all
+git branch
+git show-branch -a
+
 # create and switch to a branch
 git branch iss53
 git checkout iss531

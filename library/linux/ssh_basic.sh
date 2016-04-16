@@ -20,3 +20,11 @@ ssh -g -L 8080:localhost:80 root@$HOST
 
 #Forward connections from $HOST:1434 in to imap:143
 ssh -R 1434:imap:143 root@$HOST
+
+# SSH is slow! #
+
+# Add the follwing line to /etc/ssh/sshd_config
+UseDNS no
+
+# Already slow? Add folling line to /etc/ssh/ssh_config or ~/.ssh/config
+GSSAPIAuthentication no 
