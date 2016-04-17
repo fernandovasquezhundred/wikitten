@@ -1,10 +1,3 @@
-netsh wlan show profile name="Fer@m" key=clear
-netsh wlan show profile name="S@msung" key=clear
-RamiroV@squezChoquehu@nc@TaxPeru2015UL2012
-AvProlongacionJavierPradoMzBLt1
-D@hae
-C@lleM@yt@C@p@c410-AIVCenten@rio
-
 sudo lshw -C network
 
 ifconfig eth0 192.168.1.100 netmask 255.255.255.0 up

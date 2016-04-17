@@ -1,6 +1,6 @@
 body {
     background: #EBEEF1 url(../img/noise.png);
-    font-size: 13px;
+    font-size: 1.6em;
 }
 .clear {
     clear: both;
@@ -41,6 +41,7 @@ a, a:focus {
 }
 code, pre {
     font-family: monospace;
+  font-size: 1em
 }
 #render h1:first-child,
 #render h2:first-child {

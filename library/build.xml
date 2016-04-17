@@ -1,2 +1,0 @@
-. settings_local.py is only for local configuration, and is not in SVN
-. postgres configuration: change indent to trust in pg_hba.conf

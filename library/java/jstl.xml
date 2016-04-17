@@ -1,0 +1,47 @@
+String : ${fn:replace(inputString, beforeSubstring, afterSubstring)}
+String : ${fn:substring(string, beginIndex, endIndex)}
+int : ${fn:length(collection or string)}
+boolean : ${fn:startsWith(string, prefix)}
+String[] : ${fn:split(string, delimiters)}
+
+Important Tags
+<c:redirect url="http://iwxcode.appspot.net"/>
+<c:set var="test" value="Page Level Value" scope="page" />
+<c:set var="test" value="Request Level Value" scope="request" />
+<c:set var="test" value="Session Level Value" scope="session" />
+<c:set var="test" value="Application Level Value" scope="application" />
+<c:if test="${user.age ge 40}">
+  You are over the hill.
+</c:if>
+
+<c:choose>
+  <c:when test="${a boolean expr}">
+    do something
+  </c:when>
+  <c:when test="${another boolean expr}">
+    do something else
+  </c:when>
+  <c:otherwise>
+    do this when nothing else is true
+  </c:otherwise>
+</c:choose>
+
+<c:forEach items="${user.languages}" var="lang" varStatus="status">
+  <c:if test="${status.first}">Your languages:<br><ul></c:if>
+  <li><c:out value="${lang}"/></li>
+  <c:if test="${status.last}"></ul></c:if>
+</c:forEach>
+
+<c:import url="includes/header.jsp">
+  <c:param name="title">Hello World</c:param>
+</c:import>
+
+<!-- java.text.SimpleDateFormat -->
+<fmt:formatDate value="${now}" pattern="yy-MMM-dd"/>
+<fmt:formatDate value="${bday}" dateStyle="full"/>
+<fmt:parseDate var="bday" pattern="MM/dd/yy" value="05/10/63"/>
+
+
+<fmt:formatNumber type="currency" value="3.977">
+<fmt:parseNumber var="num" type="number" pattern="#,###" value="2,447"/>
+<c:out value="${num}"/>
