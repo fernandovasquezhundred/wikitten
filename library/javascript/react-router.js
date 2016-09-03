@@ -8,4 +8,4 @@ var Router = require('react-router').Router
 var Route = require('react-router').Route
 var Link = require('react-router').Link
 
-<script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>
+<script src="https://unpkg.com/react-router/umd/ReactRouter.min.js"></script>
