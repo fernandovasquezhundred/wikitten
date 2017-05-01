@@ -22,7 +22,6 @@ apple.getInfo();
 //
 // As object instance
 //
-
 var user = {
     name: "BuFer",
     age: 30,

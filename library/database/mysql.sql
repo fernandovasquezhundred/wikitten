@@ -19,9 +19,13 @@ DROP USER usuario;
 
 -- GRANT tipo_privilegio ON {nombre_tabla | * | *.* | nombre_bd.*} TO usuario;
 -- REVOKE tipo_privilegio ON {nombre_tabla | * | *.* | nombre_bd.*} FROM usuario;
-GRANT SELECT ON *.* TO usuario;
-GRANT ALL ON db.* TO usuario@localhost IDENTIFIED BY 'pass';
+GRANT SELECT ON *.* TO __USER__;
+GRANT ALL ON __DATABASE__.* TO usuario@localhost IDENTIFIED BY '__PASSWORD__';
+GRANT ALL ON ejabberd.* TO ejabberd@'%' IDENTIFIED BY 'eMyM0dF3r21.';
+GRANT ALL ON avbtech_webmail.* TO avbtech@'%' IDENTIFIED BY 'fdF$#gbz32SDF@';
 GRANT ALL ON bizdex.* TO bizdexuser@localhost IDENTIFIED BY 'bizdexpass';
+GRANT ALL ON dino1.* TO dino1@localhost IDENTIFIED BY 'rondennis';
+GRANT ALL ON pos32.* TO 'dino1'@'%' IDENTIFIED BY 'rondennis';
 
 -- alter table
 ALTER TABLE table_name DROP COLUMN column_name;

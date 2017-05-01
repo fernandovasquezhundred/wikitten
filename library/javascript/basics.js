@@ -1,3 +1,5 @@
+optionalArg = (typeof optionalArg === 'undefined') ? 'default' : optionalArg;
+
 Events|http://www.w3schools.com/tags/ref_eventattributes.asp
 Navigator|http://www.w3schools.com/jsref/obj_navigator.asp
 lement|http://www.w3schools.com/jsref/dom_obj_all.asp

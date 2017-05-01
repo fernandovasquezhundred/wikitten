@@ -8,14 +8,14 @@ str, unicode, list, tuple, bytearray, buffer, xrange
 
 s + t               # the concatenation of s and t	(6)
 s * n, n * sn       # shallow copies of s concatenated	(2)
-s[i]	            # i‘th item of s, origin 0	(3)
+s[i]	              # i'th item of s, origin 0	(3)
 s[i:j]	            # slice of s from i to j	(3)(4)
 s[i:j:k]            # slice of s from i to j with step k
-len(s)              # length of s	 
-min(s)              # smallest item of s	 
-max(s)              # largest item of s	 
-s.index(i)          # index of the first occurence of i in s	 
-s.count(i)          # total number of occurences of i in s	 
+len(s)              # length of s
+min(s)              # smallest item of s
+max(s)              # largest item of s
+s.index(i)          # index of the first occurence of i in s
+s.count(i)          # total number of occurences of i in s
 
 ##
 ## Strings
@@ -27,7 +27,7 @@ str.decode([encoding[, errors]])
 str.encode([encoding[, errors]])
 str.endswith(suffix[, start[, end]])
 str.expandtabs([tabsize])
-str.find(sub[, start[, end]])   # Lowest index in the string where substring sub is found (-1 if not found)
+str.find(sub[, start[, end]])   # Lowest index in the string where substring is found (-1 if not found)
 str.index(sub[, start[, end]])  # Like find(), but raise ValueError when the substring is not found.
 str.isalnum()
 str.isalpha()
@@ -39,7 +39,7 @@ str.isupper()
 str.join(iterable)
 str.ljust(width[, fillchar])
 str.lower()
-str.lstrip([chars]) # Return a copy of the string with leading characters removed. defaults: whitespace. 
+str.lstrip([chars]) # Return a copy of the string with leading characters removed. defaults: whitespace.
 'www.example.com'.lstrip('cmowz.') # 'example.com'
 str.partition(sep)  # Split the string at the first occurrence of sep, and return a 3-tuple
 str.replace(old, new[, count])
@@ -51,29 +51,29 @@ str.rsplit([sep[, maxsplit]]) # Return a list of the words in the string, using 
 str.rstrip([chars])
 'mississippi'.rstrip('ipz') # 'mississ'
 str.split([sep[, maxsplit]])
-str.splitlines([keepends]) # Return a list of the lines in the string, breaking at line boundaries. 
+str.splitlines([keepends]) # Return a list of the lines in the string, breaking at line boundaries.
 str.startswith(prefix[, start[, end]]) # Return True if string starts with the prefix
 str.strip([chars]) # Return a copy of the string with the leading and trailing characters removed.
 'www.example.com'.strip('cmowz.') # 'example'
 str.swapcase() # Return a copy of the string with uppercase characters converted to lowercase and vice versa.
 str.title()    # Return a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase.
 str.upper()
-str.zfill(width) # Return the numeric string left filled with zeros in a string of length width. 
+str.zfill(width) # Return the numeric string left filled with zeros in a string of length width.
 unicode.isnumeric()
 unicode.isdecimal()
 
 # Python has 002 quote types.
 print '%(lang)s has %(num)03d quote types.' % {"lang": "Python", "num": 2}
 
-'d'	Signed integer decimal.	 
-'i'	Signed integer decimal.	 
+'d'	Signed integer decimal.
+'i'	Signed integer decimal.
 'x'	Signed hexadecimal (lowercase).	(2)
 'X'	Signed hexadecimal (uppercase).	(2)
 'e'	Floating point exponential format (lowercase).	(3)
 'E'	Floating point exponential format (uppercase).	(3)
 'f'	Floating point decimal format.	(3)
 'F'	Floating point decimal format.	(3)
-'c'	Single character (accepts integer or single character string).	 
+'c'	Single character (accepts integer or single character string).
 'r'	String (converts any Python object using repr()).	(5)
 's'	String (converts any Python object using str()).	(6)
 '%'	No argument is converted, results in a '%' character in the result.
@@ -82,31 +82,31 @@ print '%(lang)s has %(num)03d quote types.' % {"lang": "Python", "num": 2}
     Mutable sequence: Lists
 ------------------------------------------------------"""
 l = [22, True, "una lista", [1, 2]]
-l = list('abc')       # returns ['a', 'b', 'c'] 
-l = list( (1, 2, 3) ) # returns [1, 2, 3]. 
+l = list('abc')       # returns ['a', 'b', 'c']
+l = list( (1, 2, 3) ) # returns [1, 2, 3].
 l = list()            # empty list, []
 for i in range(3):
     print i # 0 1 2
-  
+
 for index, item in enumerate(items):
     print index, item
 
 for i in range(len(items)):
     print i, items[i]
-    
+
 i = iter(L)
 item = i.next() # fetch first value
 item = i.next() # fetch second value
 
-s[i] = x      # item i of s is replaced by x	 
-s[i:j] = t    # slice of s from i to j is replaced by the contents of the iterable t	 
-del s[i:j]    # same as s[i:j] = []	 
+s[i] = x      # item i of s is replaced by x
+s[i:j] = t    # slice of s from i to j is replaced by the contents of the iterable t
+del s[i:j]    # same as s[i:j] = []
 s[i:j:k] = t  # the elements of s[i:j:k] are replaced by those of t	(1)
-del s[i:j:k]  # removes the elements of s[i:j:k] from the list	 
+del s[i:j:k]  # removes the elements of s[i:j:k] from the list
 s.append(x)   # same as s[len(s):len(s)] = [x]	(2)
 s.pop([i])    # same as x = s[i]; del s[i]; return x	(6)
 s.extend(x)   # same as s[len(s):len(s)] = x	(3)
-s.count(x)    # return number of i‘s for which s[i] == x	 
+s.count(x)    # return number of i‘s for which s[i] == x
 s.index(x[, i[, j]])  # return smallest k such that s[k] == x and i <= k < j	(4)
 s.insert(i, x)        # same as s[i:i] = [x]	(5)
 s.remove(x)   # same as del s[s.index(x)]	(4)
@@ -139,13 +139,13 @@ iterkeys()       # Return an iterator over the dictionary’s keys. See the note
 itervalues()     # Return an iterator over the dictionary’s values. See the note for dict.items().
 keys()           # Return a copy of the dictionary’s list of keys. See the note for dict.items().
 fromkeys(seq[, value]) # Create a new dictionary with keys from seq and values set to value.
-get(key[, default])    # Return the value for key if key is in the dictionary, else default. 
+get(key[, default])    # Return the value for key if key is in the dictionary, else default.
                        # Return None if there is no default get('three', 'no existe key')
-pop(key[, default]) # If key is in the dictionary, remove it and return its value, else return default. 
+pop(key[, default]) # If key is in the dictionary, remove it and return its value, else return default.
                     # If default is not given and key is not in the dictionary, a KeyError is raised.
 popitem()        # Remove and return an arbitrary (key, value) pair from the dictionary.
                  # If the dictionary is empty, calling popitem() raises a KeyError.
-setdefault(key[, default])  # If key is in the dictionary, return its value. 
+setdefault(key[, default])  # If key is in the dictionary, return its value.
                             # If not, insert key with a value of default and return default.
 update([other]) # Update the dictionary with the key/value pairs from other, overwriting existing keys.
 values()
@@ -153,18 +153,17 @@ viewitems()
 viewkeys()
 viewvalues()
 
-	      
+
 ################## Python Truth ##################
-# Any object can be tested for truth value, for use in an if or while 
-# condition or as operand of the Boolean operations below.
+# Any object can be tested for truth value, [if / while]
 # The following values are considered false:
 	None
 	False
 	zero of any numeric type, for example, 0, 0L, 0.0, 0j.
 	any empty sequence, for example, '', (), [].
 	any empty mapping, for example, {}.
-	instances of user-defined classes, if the class defines a 
-	__nonzero__() or __len__() method, when that method returns 
+	instances of user-defined classes, if the class defines a
+	__nonzero__() or __len__() method, when that method returns
 	the integer zero or bool value False.
 
 ################## *args, **kwargs ##################
@@ -240,10 +239,10 @@ object.__cmp__(self, other)
 false = False, None, 'numeric zero of all types', 'empty strings/containers'
 true = True, 'All other values'
 
-# The operators "is" and "is not" test for object identity: 
+# The operators "is" and "is not" test for object identity:
 x is y:
-   return True # If only if x and y are the same object. 
+   return True # If only if x and y are the same object.
 
-# The operators "in" and "not in" test for collection membership. 
+# The operators "in" and "not in" test for collection membership.
 x in s:
 	return True # If x is a member of the collection s

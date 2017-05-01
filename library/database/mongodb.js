@@ -1,4 +1,4 @@
-Clientes: Robomongo, Umongo
+-- Clientes: Robomongo, Umongo
 show dbs
 show collections
 show users
@@ -13,6 +13,7 @@ db.users.find({}, {name: 1, age: 1, _id:0})
 db.users.find({username: "Jones", date: new Date()});
 db.users.find({age: 33}, {name: 1, age:1, _id:0})
 db.users.find({age: {$gt: 33}})
+db.users.find({age: {$ne: 18}}) // Not equal !=
 db.users.find({username: /^Jones/});
 db.users.find({"IMAGE URL":{$ne:null}}); 	// IS NOT NULL
 
@@ -73,9 +74,13 @@ db.engagequeueitem.aggregate([
 ])
 
 db.engagequeueitem.aggregate([
-	{$match: {status: "QUEUED"}},
-	{$group: {_id: "$engagement_id", count: {$sum: 1}}}
+	{ $match: {status: "QUEUED"}},
+	{ $group: {_id: "$engagement_id", count: {$sum: 1}}}
 ])
+
+db.landers.aggregate([
+    { $group: { _id: '$group', count: {$sum: 1} } }
+]);
 
 db.engagequeueitem.mapReduce(
 	function() {emit(this.cust_id, this.amount);},		// map

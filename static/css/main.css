@@ -1,6 +1,6 @@
 body {
     background: #EBEEF1 url(../img/noise.png);
-    font-size: 1.6em;
+    font-size: 1.4em;
 }
 .clear {
     clear: both;
@@ -40,8 +40,8 @@ a, a:focus {
     overflow-x: auto;
 }
 code, pre {
-    font-family: monospace;
-  font-size: 1em
+  font-family: monospace;
+  font-size: 0.9em
 }
 #render h1:first-child,
 #render h2:first-child {

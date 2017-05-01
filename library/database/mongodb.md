@@ -37,4 +37,4 @@ show roles
 * {a: {$exists: true}} Docs containing an a field.
 * {a: /foo.*bar/} Docs where a matches the regular expression foo.*bar.
 * {a: {$not: {$type: 2}}} Docs where a is not a string. $not negates any of the
-* other query operators.* 
+* other query operators.*
