@@ -5,6 +5,26 @@ route add -net 192.168.0.0 netmask 255.255.255.0 eth0
 
 sudo vi /etc/network/interfaces
 
+# Set default gateway to 1.2.3.254
+ip route add default via 1.2.3.254
+
+tc qdisc add dev lo root handle 1:0 netem delay 20msec		Add 20ms latency to loopback device (for testing)
+tc qdisc del dev lo root			Remove latency added above
+
+# Lookup DNS ip address for name or vice versa
+host pixelbeat.org
+
+# Lookup local ip address (equivalent to host `hostname`)
+hostname -i
+
+# Lookup whois info for hostname or ip address
+whois pixelbeat.org
+
+netstat -tupl					List internet services on a system
+netstat -tup					List active connections to/from system
+windows networking (Note samba is the package that provides all this windows specific networking support)
+
+
 # The primary network interface - use DHCP to find our address
 auto eth0
 iface eth0 inet dhcp

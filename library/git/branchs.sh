@@ -12,6 +12,5 @@ git checkout -b iss53
 git checkout master
 git merge iss53
 
-
 git checkout -b api_auth
 git checkout api_auth

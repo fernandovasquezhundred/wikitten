@@ -1,15 +1,9 @@
-apropos whatis				Show commands pertinent to string. See also threadsafe
-time command				See how long a command takes
-time cat				Start stopwatch. Ctrl-d to stop. See also sw
-nice info				Run a low priority command (The "info" reader in this case)
-renice 19 -p $$				Make shell (script) low priority. Use for non interactive tasks
-
-
 # postscrpit manual to pdf
 man -t man | ps2pdf
 
 # Put current dir on stack
 pushd .
+
 # So you can back to it with
 popd
 
@@ -32,10 +26,13 @@ rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/
 #####################################
 #  Regular Expression with Sed      # 
 #####################################
-sed 's/string1/string2/g'
+
 # Modify anystring1 to anystring2
-sed 's/\(.*\)1/\12/g'
+sed 's/string1/string2/g'
+
 # Remove comments and blank lines
+sed 's/\(.*\)1/\12/g'
+
 sed '/ *#/d; /^ *$/d'
 # Concatenate lines with trailing \
 sed ':a; /\\$/N; s/\\\n//; ta'
@@ -111,16 +108,6 @@ ip addr add 1.2.3.4/24 brd + dev eth0
 ip route show
 # List routing table
 
-ip route add default via 1.2.3.254		Set default gateway to 1.2.3.254
-tc qdisc add dev lo root handle 1:0 netem delay 20msec		Add 20ms latency to loopback device (for testing)
-tc qdisc del dev lo root			Remove latency added above
-host pixelbeat.org				Lookup DNS ip address for name or vice versa
-hostname -i					Lookup local ip address (equivalent to host `hostname`)
-whois pixelbeat.org				Lookup whois info for hostname or ip address
-netstat -tupl					List internet services on a system
-netstat -tup					List active connections to/from system
-windows networking (Note samba is the package that provides all this windows specific networking support)
-
 smbtree
 Find windows machines. See also findsmb
  
@@ -148,21 +135,7 @@ tr -dc '[:print:]' < /dev/urandom
 # Filter non printable characters
 •
 history | wc -l
-Count lines
-set operations (Note you can export LANG=C for speed. Also these assume no duplicate lines within a file)
- 
-sort file1 file2 | uniq
-Union of unsorted files
- 
-sort file1 file2 | uniq -d
-Intersection of unsorted files
- 
-sort file1 file1 file2 | uniq -u
-Difference of unsorted files
- 
-sort file1 file2 | uniq -u
-Symmetric Difference of unsorted files
- 
+
 join -t'\0' -a1 -a2 file1 file2
 Union of sorted files
  
@@ -174,6 +147,7 @@ Difference of sorted files
  
 join -t'\0' -v1 -v2 file1 file2
 Symmetric Difference of sorted files
+
 math
 •
 echo '(1 + sqrt(5))/2' | bc -l

@@ -1,7 +1,7 @@
 # Start using git with the current directory
 git init
-git config --global user.name "Fernando Vasquez"
-git config --global user.email "iwxfer@gmail.com"
+git config --global user.name "User Name"
+git config --global user.email "user@gmail.com"
 
 # Push changes to remote repo "origin" from local branch "master"
 git push -u origin master

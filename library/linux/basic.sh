@@ -16,7 +16,8 @@ vi /etc/ld.so.conf.d/libc.conf
 sudo ldconfig
 
 # Memory
-free -m # Show amount of (remaining) RAM (-m displays in MB)
+# Show amount of (remaining) RAM (-m displays in MB)
+free -m
 
 # delete files with size == 0
 find /tmp -size 0 -print0 | xargs -0 rm
@@ -29,7 +30,7 @@ split -b 200m filename   # each file 200 MB
 ### bash history ###
 echo $HISTFILE && echo $HISTSIZE
 
-# Change values in ~/.bashrc
+# command line init `.bashrc`
 export HISTCONTROL=ignoreboth
 export HISTSIZE=500
 

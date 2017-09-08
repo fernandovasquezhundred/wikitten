@@ -1,3 +1,7 @@
+CREATE DATABASE __DATABASE__
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
 -- Change root password (Windows)
 USE mysql
 SET Password FOR 'root'@'localhost' = PASSWORD('new_password');
