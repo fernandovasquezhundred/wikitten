@@ -1,0 +1,15 @@
+http://zulko.github.io/moviepy/
+http://avisynth.nl/index.php/Main_Page
+https://www.mltframework.org/docs/melt/
+https://en.wikipedia.org/wiki/List_of_Avid_DNxHD_resolutions
+https://stackoverflow.com/questions/36819084/concatenate-videos-and-add-black-frames-between-them-with-ffmpeg
+https://stackoverflow.com/questions/7340149/how-do-i-make-a-video-with-a-static-image-background-in-ffmpeg
+https://video.stackexchange.com/questions/20433/ffmpeg-how-to-convert-to-dnxhr-in-windows-10
+https://askubuntu.com/questions/907398/how-to-convert-a-video-with-ffmpeg-into-the-dnxhd-format-for-the-purpose-of-usin
+https://www.youtube.com/watch?v=_asQYu4Qwt8
+https://en.wikipedia.org/wiki/Huffyuv
+https://trac.ffmpeg.org/wiki/Encode/FFV1
+https://trac.ffmpeg.org/wiki/Encode/VP9
+https://en.wikipedia.org/wiki/VP9
+https://mkvtoolnix.download/doc/mkvmerge.html
+https://trac.ffmpeg.org/wiki/Encode/H.264

@@ -1,9 +1,23 @@
-# ssh-keygen -t rsa
-# scp /home/Usuario/.ssh/id_rsa.pub root@192.168.2.67:.ssh/authorized_keys
-
-sftp root@192.168.2.67 << EOT
-lcd /export/home/data/respaldo_SP_TT/SS2/TT
-cd /home/mauro
+sftp root@remote_ip << EOT
+lcd /home/local
+cd /home/remote
+get config.yaml
+mget *.php
 bye
 quit
 EOT
+
+# copy file
+hostname="server"
+username="user"
+password="pass"
+
+ftp -n $hostname <<EOF
+quote USER $user
+quote PASS $pass
+binary
+lcd /home/pages
+cd /www/pages
+mput *.html
+quit
+EOF

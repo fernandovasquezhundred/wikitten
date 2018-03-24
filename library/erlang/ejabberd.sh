@@ -46,5 +46,13 @@ acl:
 ##
 ## ejabberdctl mod_admin_extra
 ##
+ejabberdctl list_cluster
+ejabberdctl connected_users
+ejabberdctl registered_users __VHOST__
+ejabberdctl registered_vhosts
+# x.dev.vms.me
+ejabberdctl registered_users x.dev.vms.me
+
+
 ejabberdctl subscribe bufer fernando vafer fernando VaFer friends both
 ejabberdctl add_rosteritem user30 localhost user31 localhost user31 friends both

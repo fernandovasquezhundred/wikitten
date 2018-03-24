@@ -1,19 +1,15 @@
-CREATE DATABASE __DATABASE__
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci;
+-- database create/delete management
+CREATE DATABASE __DATABASE__ CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+DROP DATABASE __DATABASE__;
 
 -- Change root password (Windows)
 USE mysql
-SET Password FOR 'root'@'localhost' = PASSWORD('new_password');
+SET Password FOR 'root'@'localhost' = PASSWORD('__PASS__');
 SET Password FOR 'root'@'%' = PASSWORD('new_password');
 -- Change root password (Linux)
 USE mysql
 SET PASSWORD FOR ''@'localhost' = PASSWORD('new_password');
 SET PASSWORD FOR ''@'host_name' = PASSWORD('new_password');
-
--- database create/delete management
-CREATE DATABASE database_name DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
-DROP DATABASE database_name;
 
 -- user management
 SELECT Host, User, Password FROM mysql.user
@@ -24,13 +20,10 @@ DROP USER usuario;
 -- GRANT tipo_privilegio ON {nombre_tabla | * | *.* | nombre_bd.*} TO usuario;
 -- REVOKE tipo_privilegio ON {nombre_tabla | * | *.* | nombre_bd.*} FROM usuario;
 GRANT SELECT ON *.* TO __USER__;
-GRANT ALL ON __DATABASE__.* TO usuario@localhost IDENTIFIED BY '__PASSWORD__';
-GRANT ALL ON ejabberd.* TO ejabberd@'%' IDENTIFIED BY 'eMyM0dF3r21.';
-GRANT ALL ON avbtech_webmail.* TO avbtech@'%' IDENTIFIED BY 'fdF$#gbz32SDF@';
-GRANT ALL ON bizdex.* TO bizdexuser@localhost IDENTIFIED BY 'bizdexpass';
-GRANT ALL ON dino1.* TO dino1@localhost IDENTIFIED BY 'rondennis';
-GRANT ALL ON pos32.* TO 'dino1'@'%' IDENTIFIED BY 'rondennis';
-
+GRANT ALL ON __DATABASE__.* TO __USER__@__HOST__ IDENTIFIED BY '__PASSWORD__';
+GRANT ALL PRIVILEGES ON *.* TO 'ejabberd'@'%' IDENTIFIED BY '__PASSWORD__';
+FLUSH PRIVILEGES;
+ 
 -- alter table
 ALTER TABLE table_name DROP COLUMN column_name;
 ALTER TABLE table_name ADD COLUMN column_name varchar (20);
@@ -38,8 +31,12 @@ ALTER TABLE table_name CHANGE old_column_name new_column_name varchar (50);
 ALTER TABLE table_name MODIFY column_name VARCHAR(3);
 ALTER TABLE table_name DROP INDEX column_name;
 
--- Make a unique column so you get no dupes.
-ALTER TABLE table_name ADD UNIQUE (column_name);
+ALTER DATABASE __DATABASE__ CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+ALTER TABLE __TABLE__ CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE __TABLE__ CHANGE __COL__ __COL__ VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- make a unique column so you get no dupes.
+ALTER TABLE __TABLE__ ADD UNIQUE (__COL__);
 
 -- https://www3.ntu.edu.sg/home/ehchua/programming/sql/SampleDatabases.html
 -- Creating Tables

@@ -1,76 +1,3 @@
-python manage.py runserver 0.0.0.0:3000
-http://www.lfd.uci.edu/~gohlke/pythonlibs/#pil
-
-##
-## Clone project
-##
-# 1. Clear models and create new ones
-# 
-python manage.py syncdb 
-python manage.py runserver
-
-"""----------------------------------------------------------
-    South
-   ----------------------------------------------------------"""
-python manage.py migrate
-
-# Initial
-python manage.py schemamigration __app__ --initial
-python manage.py migrate __app__
-# Update
-python manage.py schemamigration __app__ --auto
-python manage.py migrate __app__
-# then syncdb
-python manage.py migrate __app__ --fake 
-
-# --list: Shows what migrations are available, and puts a * next to ones which have been applied.
-# --merge: Runs any missed (out-of-order) migrations without rolling back to them.
-# --no-initial-data: Doesn't load in any initial data fixtures after a full upwards migration.
-# --fake: Records the migration sequence as having been applied, but doesn't actually run it.
-# --db-dry-run: this is useful for sanity-testing migrations to check API calls are correct.
-
-
-################## Templates ##################
-*For and If statements
-{{{
-{% for object in objects %}
-  {% if forloop.first %}
-    <li class="first">
-  {% else %}
-    <li>
-  {% endif %}
-  {{ object }}
-  </li>
-{% endfor %}
-}}}
-
-*Nice menu example:
-{{{
-{% for link in links %} {{ link }}
-  { % if not forloop.last %} | { % endif %}
-{% endfor %}
-}}}
-
-*Comparing variables
-{% ifequal variable 1 %}
-{% ifequal variable 1.23 %}
-{% ifequal section "community" %}
-{% ifequal section 'sitenews' %}
-{% ifequal user currentuser %}
-    <h1>Welcome!</h1>
-{% else %}
-    <h1>No News Here</h1>
-{% endifequal %}
-
-*Filters
-{{{
-{{ name|lower }}    			# lowercase the text
-{{ bio|truncatewords:"3" }}  	# words! not characters
-addslashes: Agrega una con contra-barra.
-date: Formatea un objeto date o datetime {{ pub_date|date:"F j, Y" }}
-escape: convierte caracteres especiales a xhtml
-}}}
-
 ##
 ##  Sessions
 ##
@@ -150,35 +77,6 @@ def search(request):
     return HttpResponse('Please submit a search term.')
 	return render_to_response('search_form.html', {'error': True})
 
-"""----------------------------------------------------------"""
-<html>
-<head>
-    <title>Search</title>
-</head>
-<body>
-    {% if error %}
-        <p style="color: red;">Please submit a search term.</p>
-    {% endif %}
-    <form action="/search/" method="get">
-        <input type="text" name="q">
-        <input type="submit" value="Search">
-    </form>
-</body>
-</html>
-
-"""----------------------------------------------------------"""
-<p>You searched for: <strong>{{ query }}</strong></p>
-{% if books %}
-    <p>Found {{ books|length }} book{{ books|pluralize }}.</p>
-    <ul>
-        {% for book in books %}
-        <li>{{ book.title }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No books matched your search criteria.</p>
-{% endif %}
-
 
 """----------------------------------------------------------
     Request Response
@@ -214,3 +112,26 @@ response.content # will display the response
 ################## Web Debugging ##################
 return HttpResponse(str("ok"))
 request.META['wsgi.errors'].write("testing")
+
+
+
+"""----------------------------------------------------------
+    South
+   ----------------------------------------------------------"""
+python manage.py migrate
+
+# Initial
+python manage.py schemamigration __app__ --initial
+python manage.py migrate __app__
+# Update
+python manage.py schemamigration __app__ --auto
+python manage.py migrate __app__
+# then syncdb
+python manage.py migrate __app__ --fake 
+
+# --list: Shows what migrations are available, and puts a * next to ones which have been applied.
+# --merge: Runs any missed (out-of-order) migrations without rolling back to them.
+# --no-initial-data: Doesn't load in any initial data fixtures after a full upwards migration.
+# --fake: Records the migration sequence as having been applied, but doesn't actually run it.
+# --db-dry-run: this is useful for sanity-testing migrations to check API calls are correct.
+

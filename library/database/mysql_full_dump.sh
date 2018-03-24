@@ -5,7 +5,6 @@ HOST=localhost
 USER=__USER__
 PASS=__PASS__
 BACKUP_DIR=__OUTDIR__
-## END CONFIG ##
 
 if [ ! -d $BACKUP_DIR ]; then
   mkdir -p $BACKUP_DIR

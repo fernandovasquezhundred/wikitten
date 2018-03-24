@@ -1,7 +1,7 @@
 
 # nginx configuration
 
-* asdasdasdsadasdasdas
+* php configuration
 
     server {
         listen 80;

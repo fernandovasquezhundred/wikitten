@@ -7,7 +7,7 @@ c(mod_version).
 ejabberd_logger:get().
 ejabberd_logger:set(4).
 
-# disconect session
+// disconect session
 SID = ejabberd_sm:get_session_pid(LUser, LServer, Resource),
 
 %%

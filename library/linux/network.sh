@@ -47,3 +47,44 @@ netmask 255.255.255.0
 network x.x.x.x
 broadcast x.x.x.x
 gateway x.x.x.x
+
+
+ethtool eth0
+# Show status of ethernet interface eth0
+
+ethtool --change eth0 autoneg off speed 100 duplex full
+# Manually set ethernet interface speed
+
+iwconfig eth1
+# Show status of wireless interface eth1
+
+iwconfig eth1 rate 1Mb/s fixed
+# Manually set wireless interface speed
+
+iwlist scan
+# List wireless networks in range
+
+ip link show
+# List network interfaces
+
+ip link set dev eth0 name wan
+# Rename interface eth0 to wan
+
+ip link set dev eth0 up
+# Bring interface eth0 up (or down)
+
+ip addr show
+# List addresses for interfaces
+
+ip addr add 1.2.3.4/24 brd + dev eth0
+# Add (or del) ip and mask (255.255.255.0)
+
+ip route show
+# List routing table
+
+smbtree
+Find windows machines. See also findsmb
+ 
+nmblookup -A 1.2.3.4
+Find the windows (netbios) name associated with ip address
+ 

@@ -4,6 +4,11 @@ sudo service mongodb start
 # For remote connections add  line to "/etc/mongodb.conf"
 bind_ip = 0.0.0.0
 
+# backup/restore
+mongodump --host __HOST__ --port __PORT__ --out dump-2013-10-25/
+mongodump --username __USER__ --password "__PASS__"
+mongorestore dump-2013-10-25/
+
 # Insufficient free space for journal files
 # /etc/mongodb.conf
 # mongo 3

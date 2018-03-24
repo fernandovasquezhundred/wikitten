@@ -4,9 +4,8 @@ ringo = Person.objects.create(name="Ringo Starr")
 p1 = Publisher(name='Addison-Wesley', address='75 Arlington Street')
 p1.save()
 p1.delete()
-}}}
-* Getting and filtering
-{{{
+
+# Getting and filtering
 publisher_list = Publisher.objects.all()
 Publisher.objects.filter(name="Apress Publishing")
 Publisher.objects.filter(name__contains="press") # icontains, startswith y, endswith y, range, gt, gte, lt, lte
@@ -15,9 +14,8 @@ Publisher.objects.filter(~Q(value=0)) # Not equal
 
 Publisher.objects.get(name="Addison-Wesley")
 Publisher.objects.get(name="Apress Publishing") # exception if many objects
-}}}
-*Advanced Filtering
-{{{
+
+# Advanced Filtering
 from django.db.models import Q
 Entry.objects.filter(headline__contains='Lennon').count()
 
@@ -31,9 +29,8 @@ end_date = datetime.date(2005, 3, 31)
 Entry.objects.filter(pub_date__range=(start_date, end_date))
 Entry.objects.filter(pub_date__year=2005)
 Entry.objects.filter(pub_date__day=3)
-}}}
-*Order
-{{{
+
+# Order
 Publisher.objects.order_by("name")
 Publisher.objects.order_by("-name")
 Publisher.objects.order_by("state_provice", "address")
@@ -54,29 +51,26 @@ Entry.objects.order_by('headline')[0:1].get()
 publishers = Publisher.objects.all()
 publishers.delete()
 publishers.update(status='inactive')
-}}}
-*Filters can reference fields on the mode
-{{{
+
+# Filters can reference fields on the mode
 from django.db.models import F
 Entry.objects.filter(n_comments__gt=F('n_pingbacks'))
 Entry.objects.filter(n_comments__gt=F('n_pingbacks') * 2)
 Entry.objects.filter(rating__lt=F('n_comments') + F('n_pingbacks'))
 Entry.objects.filter(authors__name=F('blog__name')) # the author's name is the same as the blog name
 Proxy.objects.all().update(value= not F('value')) # invert the value
-}}}
-*Q Object
-{{{
+
+# Q Object
 Poll.objects.get(
     Q(question__startswith='Who'),
     Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6))
 )
+
 Poll.objects.get(
     Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6)),
     question__startswith='Who'
 )
-}}}
-*Count(field, distinct=False), Avg(field), Max(field), Min(field), Sum(field), StdDev(field, sample=False)
-{{{
+# Count(field, distinct=False), Avg(field), Max(field), Min(field), Sum(field), StdDev(field, sample=False)
 q = Blog.objects.annotate(Count('entry')) # how many entries have been made in each blog
 q[0].name # The name of the first blog
 q[0].entry__count # The number of entries on the first blog
@@ -84,7 +78,8 @@ q[0].entry__count # The number of entries on the first blog
 q = Blog.objects.annotate(number_of_entries=Count('entry'))
 q[0].number_of_entries
 }}}
-*We need {{{select category_id, count(id) from item group by category_id}}}
+
+# We need {{{select category_id, count(id) from item group by category_id}}}
 {{{
 class Category(models.Model):
     name = models.CharField(max_length=60)

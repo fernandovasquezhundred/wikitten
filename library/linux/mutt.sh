@@ -1,8 +1,9 @@
-Install Mutt
+# Install Mutt
 sudo apt-get install mutt
 touch .muttrc
 mkdir -p .mutt/cache
-Add gmail
+
+# Add gmail
 set from = "iwxfer@gmail.com"
 set realname = "Tu nombre"
 set imap_user = "tuemail@gmail.com"

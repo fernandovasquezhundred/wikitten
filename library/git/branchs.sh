@@ -1,12 +1,11 @@
-# show current brannch and all
-git branch
-git show-branch -a
+git branch				# show current brannch
+git show-branch -a		# list all branches
 
 # create and switch to a branch
 git branch iss53
 git checkout iss531
-# in one step
-git checkout -b iss53
+
+git checkout -b iss53   # in one step
 
 # Merging into master
 git checkout master
