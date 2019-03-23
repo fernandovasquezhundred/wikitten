@@ -1,25 +1,18 @@
 git remote -v
-git remote rm destination
+git remote rm __REPO__
 
-# Add external (remote) repo named __REPO_NAME__
-git remote add __REPO_NAME__ git@github.com:__USER__/__REPO__.git
+# Add external (remote) repo with name __NAME__
+git remote add __NAME__ __REPO__
 #   By convention, "origin" is the original remote repository,
 #     it is the 'primary' centralized repository as well.
 
 git remote show origin       # show repo URL
 
-
-
-###
-### Merge REmotes
-###
-cloning yourRemoteRepo (that way, you can easily pull/push from that repo)
-adding mainstreamRepo as a remote and fetch its branch, then track the one which interest you
-
-git clone git://yourRemoteRepo
-git remote add mainStreamRepo http://mainStreamRepo
-git fetch mainStreamRepo
-git checkout -b mainStreamMaster mainStreamRepo/master
+# Merge remotes
+git clone __REPO1__
+git remote add __MAIN__ __REPO2__ 
+git fetch __MAIN__
+git checkout -b master __REPO2__/master
 git checkout master
 
 # Then
