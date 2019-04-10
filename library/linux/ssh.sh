@@ -22,7 +22,7 @@ scp -p -r $user@$host: file dir/
 ssh -g -L 8080:$hostname:80 root@$host
 
 ssh -L 3333:localhost:3306 __USER__@__SERVERIP__
-mysql -u __MYUSER__ -p -P 3307 -h 127.0.0.1 
+mysql -u __MYUSER__ -p -P 3333 -h 127.0.0.1 
 
 ssh -L 3307:localhost:3306 fernando@192.168.0.41
 mysql -u myadmin -p -P 3307 -h 127.0.0.1 
