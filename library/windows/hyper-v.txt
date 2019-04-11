@@ -1,8 +1,0 @@
-Hi Ben,
-That's odd. Based on my test, this feature won't be enable automatically after restart the computer.
-Please double check your operation:
-1. Press Windows key + X
-2. Click Programs and Features
-3. Click Turn Windows features on or off
-4. Expand Hyper-V, uncheck it.
-5. Click OK, restart if prompted.

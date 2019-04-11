@@ -1,25 +1,28 @@
-export __DIR__=/etc/ejabberd
-export __FILE__=ejabberd_conf
+__DIR__=/home/user/tmp/
+__USER__=user
+__REMOTE__=fer44.com
+__FILE__=bkp
 
 ###################
 ### Compression ###
 ###################
 
-# Compress and Decompress bzip2 and gz(gpg)
-tar -c __DIR__/ | bzip2 > __FILE__.tar.bz2
-bzip2 -dc __FILE__.tar.bz2 | tar -x
+# Compress bzip2 and gz+gpg
+tar -c  __DIR__ | bzip2 > __FILE__.tar.bz2
+tar -cz __DIR__ | gpg -c -o $__FILE__.tgz.gpg
 
-tar -cz $__DIR__ | gpg -c -o $__FILE__.tgz.gpg
-gpg -d $__FILE__.tgz.gpg | tar xz
+# DeCompress bzip2 and gz+gpg
+bzip2 -dc __FILE__.tar.bz2 | tar -x
+gpg -d __FILE__.tgz.gpg | tar -xz
 
 # Compress multiple files and dirs
+tar -cf   __TAR__.tar    file1 file2 ... dir1 dir2 ...
 tar -zcvf __TAR__.tar.gz file1 file2 ... dir1 dir2 ...
 
+tar --exclude=**/.gradle/* --exclude=**/build/* -cf __TAR__.tar dir
+tar --exclude={*.png,.git,node_modules} -cf __TAR__.tar dir
+
 # Make encrypted archive on remote machine
-__DIR__=/home/djuser/tmp/
-__USER__=djuser
-__REMOTE__=linktelligence.com
-__FILE__=backap
 tar -c $__DIR__/ | gzip | gpg -c | ssh $__USER__@$__REMOTE__ "dd of=$__FILE__.tar.gz.gpg"
 
 # Compress 7z
@@ -27,9 +30,6 @@ alias zipp=7za
 zipp a -r __ZIP__.7z __DIR__/
 zipp a -t7z -p -r __ZIP__.7z __DIR__/
 zipp e __ZIP__.7z
-
-# 7z on windows
-copy C:\dev\7Zip\7z.exe C:\dev\7Zip\zipp.exe
 
 ###################
 ### Permissions ###
@@ -67,16 +67,6 @@ HISTSIZE=1000
 LS_COLORS=$LS_COLORS:'di=1;36:'; export LS_COLORS
 LS_COLORS=$LS_COLORS:'di=1;33:'; export LS_COLORS
 
-############
-### math ###
-############
-echo '(1 + sqrt(5))/2' | bc -l
-echo $((0x2dec))					# Base conversion (hex to dec) ((shell arithmetic expansion))
-units -t '100m/9.58s' 'miles/hour'  # Unit conversion (metric to imperial)
-units -t '500GB' 'GiB'              # Unit conversion (SI to IEC prefixes)
-units -t '1 googol'                 # Definition lookup
-seq 100 | (tr '\n' +; echo 0) | bc  # Add a column of numbers. See also add and funcpy
-
 ################
 ### calendar ###
 ################
@@ -87,7 +77,6 @@ date --date='25 Dec' +%A # What day does xmas fall on, this year
 date --date='@2147483647' # Convert seconds since the epoch (1970-01-01 UTC) to date
 TZ='America/Los_Angeles' date # What time is it on west coast of US (use tzselect to find TZ)
 date --date='TZ="America/Los_Angeles" 09:00 next Fri' # The local time for 9AM next Friday on west coast US
-[ $(date -d "tomorrow" +%d) = "01" ] || exit # exit a script unless it's the last day of the month
 
 ### mail and scheduler
 echo "mail -s 'get the train' P@draigBrady.com < /dev/null" | at 17:45 # Email reminder
@@ -101,11 +90,7 @@ recode windows-1252.. __FILE__ # Windows "ansi" to local charset (with CRLF conv
 recode utf-8/CRLF.. __FILE__                   # Windows utf8 to local charset
 recode iso-8859-15..utf8 file_to_change.txt    # Latin9 (western europe) to utf8 
 recode ../b64 __FILE__ __FILE_Base64__         # Base64 encode
-
-recode /qp.. < file.txt > file.qp              # Quoted printable decode 
 recode -lf windows-1252 | grep euro            # Lookup table of characters
-
-echo -n 0x80 | recode latin-9/x1..dump         # Show what a code represents in latin-9 charmap
 
 ### images
 # mount the cdrom image at /mnt/dir (read only) 

@@ -7,17 +7,10 @@ man -t man | ps2pdf
 
 sed 's/string1/string2/g' 			# Modify anystring1 to anystring2
 sed 's/\(.*\)1/\12/g'			# Remove comments and blank lines
-sed ':a; /\\$/N; s/\\\n//; ta'	# Concatenate lines with trailing \
-
 sed 's/[ \t]*$//'	# Remove trailing spaces from lines
-
-sed 's/\([`"$\]\)/\\\1/g'	# Escape shell metacharacters active within double quotes
-
-seq 10 | sed "s/^/      /; s/ *\(.\{7,\}\)/\1/"	# Right align numbers
 
 cat file | sed -n '1000{p;q}'	# Print 1000th line of file
 sed -n '10,20p;20q'				# Print lines 10 to 20
-sed -n 's/.*<title>\(.*\)<\/title>.*/\1/ip;T;q' 	# Extract title from HTML web page
 sed -i 42d ~/.ssh/known_hosts		# Delete a particular line
 
 ls /usr/bin | pr -T9 -W$COLUMNS		Print in 9 columns to width of terminal
@@ -26,18 +19,11 @@ find -name '*.[ch]' | xargs grep -E 'expr'		# Search 'expr' in this dir and belo
 find -type f -print0 | xargs -r0 grep -F 'example'	# .. regular files for 'example' in this dir and below
 find -maxdepth 1 -type f | xargs grep -F 'example'	# .. regular files for 'example' in this dir
 find -maxdepth 1 -type d | while read dir; do echo $dir; echo cmd2; done	Process each item with multiple commands (in while loop)
-find -type f ! -perm -444		Find files not readable by all (useful for web site)
-find -type d ! -perm -111		Find dirs not accessible by all (useful for web site)
 locate -r 'file[^/]*\.txt'		Search cached index for names. This re is like glob *file*.txt
-look reference				Quickly search (sorted) dictionary for prefix
 grep --color reference /usr/share/dict/words		Highlight occurances of regular expression in dictionary
-
 
 find dir/ -name '*.txt' | tar -c --files-from=- | bzip2 > dir_txt.tar.bz2	Make archive of subset of dir/ and below
 find dir/ -name '*.txt' | xargs cp -a --target-directory=dir_txt/ --parents	Make copy of subset of dir/ and below
-( tar -c /dir/to/copy ) | ( cd /where/to/ && tar -x -p )			Copy (with permissions) copy/ dir to /where/to/ dir
-( cd /dir/to/copy && tar -c . ) | ( cd /where/to/ && tar -x -p )		Copy (with permissions) contents of copy/ dir to /where/to/
-( tar -c /dir/to/copy ) | ssh -C user@remote 'cd /where/to/ && tar -x -p' 	Copy (with permissions) copy/ dir to remote:/where/to/ dir
 dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz'			Backup harddisk to remote machine
 
 smbclient -L windows_box # List shares on windows machine or samba server
@@ -54,25 +40,6 @@ tr -dc '[:print:]' < /dev/urandom			# Filter non printable characters
 •
 history | wc -l
 
-join -t'\0' -a1 -a2 file1 file2
-Union of sorted files
- 
-join -t'\0' file1 file2
-Intersection of sorted files
- 
-join -t'\0' -v2 file1 file2
-Difference of sorted files
- 
-join -t'\0' -v1 -v2 file1 file2
-Symmetric Difference of sorted files
-
-
-strace -c ls >/dev/null
-Summarise/profile system calls made by command
-•
-strace -f -e open ls >/dev/null
-List system calls made by command
-•
 ltrace -f -e getenv ls >/dev/null
 List library calls made by command
 •
@@ -84,15 +51,10 @@ List processes that have specified path open
 •
 tcpdump not port 22
 Show network traffic except ssh. See also tcpdump_not_me
-•
-ps -e -o pid,args --forest
-List processes in a hierarchy
-•
-ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'
-List processes by % cpu usage
-•
-ps -e -orss=,args= | sort -b -k1,1n | pr -TW$COLUMNS
-List processes by mem (KB) usage. See also ps_mem.py
+
+ps -e -o pid,args --forest # List processes in a hierarchy
+ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d' # List processes by % cpu usage
+ps -e -orss=,args= | sort -b -k1,1n | pr -TW$COLUMNS # List processes by mem (KB) usage. See also ps_mem.py
 •
 ps -C firefox-bin -L -o pid,tid,pcpu,state
 List all threads for a particular process
