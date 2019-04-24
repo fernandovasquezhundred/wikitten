@@ -2,6 +2,10 @@
 git init
 git config --global user.name "User Name"
 git config --global user.email "user@gmail.com"
+git config --global user.signingkey __KEYID__
+
+git config --local -e
+git config --local core.editor "nvim"
 
 # Push changes to remote repo "origin" from local branch "master"
 git push -u origin master
@@ -10,8 +14,8 @@ git push -u origin master
 git pull origin master
 
 # Cloning a git repo, remote or local
-git clone git@github.com:__user__/__repo__.git
-git clone hello hello-clone
+git clone git@github.com:__user__/__repoName__.git
+git clone __REPO__ __DIR__
 
 # Do things... changes new files...
 git add ejemplo.txt         #- Adding to the local repo
@@ -57,11 +61,10 @@ git clone -b __branch__ --single-branch __repo__
 
 # small change to last commit
 git add .
-git commit --amend 
+git commit --amend
 
 # merge different remotes
 git remote add openshift __repo__
 git fetch openshift
 git merge openshift/master
 git commit
-
