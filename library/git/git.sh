@@ -6,6 +6,7 @@ git config --global user.signingkey __KEYID__
 
 git config --local -e
 git config --local core.editor "nvim"
+git config --local commit.gpgsign true
 
 # Push changes to remote repo "origin" from local branch "master"
 git push -u origin master
